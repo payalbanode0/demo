@@ -1,0 +1,50 @@
+
+
+
+que. current folder have files abc.txt,def.txt,ghi.txt,jkl.txt
+you have to move these files to the foldder like abc.txt= abc/, def.txt= def/....
+ans.
+for files in *txt
+do 
+folderName=$(echo $files |awk -F. '{print $1}')
+rm -r $folderName
+mv $files $folderName
+done
+
+A) create files in current directory abc.txt def.txt, ghi.txt, jkl.txt
+~/desktop/ppp
+$ ls
+abc.txt  ghi.txt
+
+que 2) what is a agreegate totalpay of employees whose jobtitle is captain
+ans $ cat data.csv |grep CAPTAIN |awk '{sum+=$7} END {print sum/NR}'
+390599
+
+
+QUE1) print employeename and totalpay who has basepay greater than 10000
+
+$ cat data.csv |awk '$4 > 100000 {print $2,$7}'
+EmployeeName TotalPay
+NATHANIEL 567595
+GARY 538909
+ALBERT 335279
+PATRICK 326373
+DAVID 316285
+DAVID 307899
+JOANNE 302377
+EDWARD 294580
+
+
+
+iii) print jobtitle and ovetimepay who has overtimepay is between 7000 and 10000
+ cat data.csv | awk '{if($5>=7000 && $5<=10000) print $3,$5}'
+DEPUTYCHIEF 9737
+ASSTDEPUTY 8601
+
+
+iv) print average Basepay
+$ cat data.csv | awk '{sum+=$4} END {print sum/NR}'
+157972
+
+
+
